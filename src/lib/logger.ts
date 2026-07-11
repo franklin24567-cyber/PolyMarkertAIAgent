@@ -9,7 +9,7 @@ export function redactSecrets(input: string): string {
   let output = input;
   for (const key of SECRET_ENV_KEYS) {
     const value = process.env[key];
-    if (value && value.length >= 4) {
+    if (value && value.length >= 8) {
       output = output.split(value).join(`[REDACTED_${key}]`);
     }
   }

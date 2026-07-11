@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { eq, desc } from "drizzle-orm";
 import { db } from "@/lib/db";
 import { paperTrades, walletProfiles, decisionJournal, dailyReports, ruleChanges } from "@/lib/db/schema";
+import { startOfTodayUnix } from "@/lib/dateUtils";
 
 export const dynamic = "force-dynamic";
 
@@ -22,7 +23,7 @@ export async function GET() {
 
     const trackedWallets = await db.select().from(walletProfiles).where(eq(walletProfiles.status, "track"));
 
-    const todayStart = Math.floor(new Date(new Date().toISOString().slice(0, 10) + "T00:00:00Z").getTime() / 1000);
+    const todayStart = startOfTodayUnix();
     const decisionsToday = await db.select().from(decisionJournal);
     const copyCandidatesToday = decisionsToday.filter(
       (d) => d.decision === "paper_copy" && d.createdAt >= todayStart

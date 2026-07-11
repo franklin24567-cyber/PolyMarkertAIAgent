@@ -19,6 +19,9 @@ export function computePaperPnl({ side, entryPrice, currentPrice, simulatedPosit
   if (entryPrice <= 0 || entryPrice >= 1) {
     throw new Error(`computePaperPnl: entryPrice must be between 0 and 1 (exclusive), got ${entryPrice}`);
   }
+  if (currentPrice < 0 || currentPrice > 1) {
+    throw new Error(`computePaperPnl: currentPrice must be between 0 and 1 (inclusive), got ${currentPrice}`);
+  }
   if (side === "YES") {
     return (currentPrice - entryPrice) * (simulatedPositionSize / entryPrice);
   }

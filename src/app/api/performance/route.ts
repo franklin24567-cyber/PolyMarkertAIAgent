@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { asc } from "drizzle-orm";
 import { db } from "@/lib/db";
 import { pnlSnapshots, paperTrades } from "@/lib/db/schema";
+import { timestampToDateString } from "@/lib/dateUtils";
 
 export const dynamic = "force-dynamic";
 
@@ -13,7 +14,7 @@ export async function GET() {
 
     const byDay = new Map<string, number>();
     for (const s of snapshots) {
-      const day = new Date(s.collectedAt * 1000).toISOString().slice(0, 10);
+      const day = timestampToDateString(s.collectedAt);
       byDay.set(day, (byDay.get(day) ?? 0) + s.pnl);
     }
     const pnlSeries = Array.from(byDay.entries())

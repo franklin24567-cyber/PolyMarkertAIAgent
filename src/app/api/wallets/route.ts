@@ -12,9 +12,22 @@ export const dynamic = "force-dynamic";
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
-    const page = Math.max(1, Number(searchParams.get("page") ?? "1"));
-    const pageSize = Math.min(100, Math.max(1, Number(searchParams.get("pageSize") ?? "25")));
+
+    const rawPage = searchParams.get("page") ?? "1";
+    const rawPageSize = searchParams.get("pageSize") ?? "25";
+    const page = Number(rawPage);
+    const pageSize = Number(rawPageSize);
     const status = searchParams.get("status");
+
+    if (!Number.isInteger(page) || page < 1) {
+      return NextResponse.json({ error: "page must be a positive integer" }, { status: 400 });
+    }
+    if (!Number.isInteger(pageSize) || pageSize < 1 || pageSize > 100) {
+      return NextResponse.json({ error: "pageSize must be an integer between 1 and 100" }, { status: 400 });
+    }
+    if (status !== null && status !== "track" && status !== "watch" && status !== "ignore") {
+      return NextResponse.json({ error: "status must be one of: track, watch, ignore" }, { status: 400 });
+    }
 
     let rows;
     if (status === "track" || status === "watch" || status === "ignore") {
