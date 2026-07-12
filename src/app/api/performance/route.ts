@@ -4,7 +4,6 @@ import { db } from "@/lib/db";
 import { pnlSnapshots, paperTrades } from "@/lib/db/schema";
 import { timestampToDateString } from "@/lib/dateUtils";
 
-export const dynamic = "force-dynamic";
 
 /** PnL time series + win-rate breakdown for performance charts. */
 export async function GET() {

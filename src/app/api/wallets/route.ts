@@ -3,7 +3,6 @@ import { desc, eq } from "drizzle-orm";
 import { db } from "@/lib/db";
 import { walletProfiles } from "@/lib/db/schema";
 
-export const dynamic = "force-dynamic";
 
 /**
  * List wallet profiles with basic pagination and status filtering.

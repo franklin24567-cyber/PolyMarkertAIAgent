@@ -3,7 +3,6 @@ import { db } from "@/lib/db";
 import { dailyReports } from "@/lib/db/schema";
 import { DemoDataBadge } from "@/components/StatusBadge";
 
-export const dynamic = "force-dynamic";
 
 export default async function ReportsPage() {
   const reports = await db.select().from(dailyReports).orderBy(desc(dailyReports.date)).limit(30);

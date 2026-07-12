@@ -4,7 +4,6 @@ import { db } from "@/lib/db";
 import { paperTrades, walletProfiles, decisionJournal, dailyReports, ruleChanges } from "@/lib/db/schema";
 import { startOfTodayUnix } from "@/lib/dateUtils";
 
-export const dynamic = "force-dynamic";
 
 /**
  * Aggregate stats for the dashboard overview page.

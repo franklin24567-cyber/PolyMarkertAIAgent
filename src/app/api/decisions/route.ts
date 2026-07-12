@@ -3,7 +3,6 @@ import { desc } from "drizzle-orm";
 import { db } from "@/lib/db";
 import { decisionJournal } from "@/lib/db/schema";
 
-export const dynamic = "force-dynamic";
 
 /** The full decision journal (reasoning behind every paper_copy/watchlist/skip). */
 export async function GET(request: Request) {

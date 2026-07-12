@@ -3,7 +3,6 @@ import { desc, eq } from "drizzle-orm";
 import { db } from "@/lib/db";
 import { paperTrades } from "@/lib/db/schema";
 
-export const dynamic = "force-dynamic";
 
 /** List of simulated ("paper") trades. Query param: status (open|closed|resolved). */
 export async function GET(request: Request) {

@@ -3,7 +3,6 @@ import { desc } from "drizzle-orm";
 import { db } from "@/lib/db";
 import { observedTrades } from "@/lib/db/schema";
 
-export const dynamic = "force-dynamic";
 
 /** Feed of observed trades from tracked/watched wallets. */
 export async function GET(request: Request) {

@@ -3,7 +3,6 @@ import { desc } from "drizzle-orm";
 import { db } from "@/lib/db";
 import { dailyReports } from "@/lib/db/schema";
 
-export const dynamic = "force-dynamic";
 
 /** Daily/weekly reports. Query param: limit (defaults to 30 days). */
 export async function GET(request: Request) {

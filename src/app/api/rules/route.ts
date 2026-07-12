@@ -3,7 +3,6 @@ import { desc } from "drizzle-orm";
 import { db } from "@/lib/db";
 import { ruleSets, ruleChanges } from "@/lib/db/schema";
 
-export const dynamic = "force-dynamic";
 
 /** Rule set versions and the audit trail of changes between them. */
 export async function GET() {
