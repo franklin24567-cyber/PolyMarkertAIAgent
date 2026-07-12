@@ -4,7 +4,7 @@ import { db } from "@/lib/db";
 import { walletProfiles, observedTrades, decisionJournal } from "@/lib/db/schema";
 
 export async function generateStaticParams() {
-  return [{ address: "placeholder" }];
+  return [{ address: "0x0000000000000000000000000000000000000000" }];
 }
 
 /** Wallet profile detail, including recent observed trades and decisions. */

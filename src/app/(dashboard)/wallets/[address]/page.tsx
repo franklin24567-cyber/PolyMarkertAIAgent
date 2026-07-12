@@ -6,7 +6,7 @@ import { StatusBadge, DemoDataBadge } from "@/components/StatusBadge";
 import { KpiCard } from "@/components/KpiCard";
 
 export async function generateStaticParams() {
-  return [{ address: "placeholder" }];
+  return [{ address: "0x0000000000000000000000000000000000000000" }];
 }
 
 export default async function WalletDetailPage({ params }: { params: { address: string } }) {
