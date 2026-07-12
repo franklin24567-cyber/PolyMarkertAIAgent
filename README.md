@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # PolyMarket AI Agent
 
 A **Hermes-powered, self-improving Polymarket copy-trading bot** with a
@@ -162,6 +161,3 @@ values, and they're never logged (see `src/lib/logger.ts`).
 
 See [`SAFETY.md`](./SAFETY.md) for the complete list of safety guarantees
 and how they're enforced/tested in this codebase.
-=======
-# PolyMarkertAIAgent
->>>>>>> origin/main
