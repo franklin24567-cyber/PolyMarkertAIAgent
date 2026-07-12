@@ -2,18 +2,14 @@ name: CI
 
 on:
   push:
-    branches:
-      - '**'
   pull_request:
-    branches:
-      - '**'
 
 permissions:
   contents: read
 
 jobs:
   build-and-test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Checkout
