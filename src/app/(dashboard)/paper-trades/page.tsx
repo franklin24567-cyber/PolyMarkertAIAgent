@@ -3,7 +3,6 @@ import { db } from "@/lib/db";
 import { paperTrades } from "@/lib/db/schema";
 import { StatusBadge, DemoDataBadge } from "@/components/StatusBadge";
 
-export const dynamic = "force-dynamic";
 
 export default async function PaperTradesPage() {
   const trades = await db.select().from(paperTrades).orderBy(desc(paperTrades.openedAt));

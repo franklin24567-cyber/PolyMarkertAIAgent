@@ -4,7 +4,6 @@ import { db } from "@/lib/db";
 import { walletProfiles } from "@/lib/db/schema";
 import { StatusBadge, DemoDataBadge } from "@/components/StatusBadge";
 
-export const dynamic = "force-dynamic";
 
 export default async function WalletsPage() {
   const wallets = await db.select().from(walletProfiles).orderBy(desc(walletProfiles.globalScore));

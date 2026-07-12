@@ -6,7 +6,6 @@ import { WinRateBarChart } from "@/components/charts/WinRateBarChart";
 import { KpiCard } from "@/components/KpiCard";
 import { DemoDataBadge } from "@/components/StatusBadge";
 
-export const dynamic = "force-dynamic";
 
 export default async function PerformancePage() {
   const snapshots = await db.select().from(pnlSnapshots).orderBy(asc(pnlSnapshots.collectedAt));

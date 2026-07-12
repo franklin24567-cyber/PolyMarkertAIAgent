@@ -3,7 +3,9 @@ import { eq, desc } from "drizzle-orm";
 import { db } from "@/lib/db";
 import { walletProfiles, observedTrades, decisionJournal } from "@/lib/db/schema";
 
-export const dynamic = "force-dynamic";
+export async function generateStaticParams() {
+  return [{ address: "placeholder" }];
+}
 
 /** Wallet profile detail, including recent observed trades and decisions. */
 export async function GET(_request: Request, { params }: { params: { address: string } }) {

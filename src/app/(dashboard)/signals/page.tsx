@@ -3,7 +3,6 @@ import { db } from "@/lib/db";
 import { observedTrades } from "@/lib/db/schema";
 import { DemoDataBadge } from "@/components/StatusBadge";
 
-export const dynamic = "force-dynamic";
 
 export default async function SignalsPage() {
   const trades = await db.select().from(observedTrades).orderBy(desc(observedTrades.timestamp)).limit(100);

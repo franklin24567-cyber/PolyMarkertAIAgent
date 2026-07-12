@@ -5,7 +5,9 @@ import { walletProfiles, observedTrades, decisionJournal } from "@/lib/db/schema
 import { StatusBadge, DemoDataBadge } from "@/components/StatusBadge";
 import { KpiCard } from "@/components/KpiCard";
 
-export const dynamic = "force-dynamic";
+export async function generateStaticParams() {
+  return [{ address: "placeholder" }];
+}
 
 export default async function WalletDetailPage({ params }: { params: { address: string } }) {
   const address = decodeURIComponent(params.address);

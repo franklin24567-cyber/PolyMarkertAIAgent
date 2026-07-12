@@ -3,7 +3,6 @@ import { db } from "@/lib/db";
 import { decisionJournal } from "@/lib/db/schema";
 import { StatusBadge, DemoDataBadge } from "@/components/StatusBadge";
 
-export const dynamic = "force-dynamic";
 
 export default async function DecisionsPage() {
   const decisions = await db.select().from(decisionJournal).orderBy(desc(decisionJournal.createdAt)).limit(100);

@@ -2,7 +2,6 @@ import { desc } from "drizzle-orm";
 import { db } from "@/lib/db";
 import { ruleSets, ruleChanges } from "@/lib/db/schema";
 
-export const dynamic = "force-dynamic";
 
 export default async function RulesPage() {
   const sets = await db.select().from(ruleSets).orderBy(desc(ruleSets.version));

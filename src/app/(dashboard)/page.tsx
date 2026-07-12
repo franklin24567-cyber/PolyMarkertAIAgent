@@ -5,7 +5,6 @@ import { KpiCard } from "@/components/KpiCard";
 import { DemoDataBadge } from "@/components/StatusBadge";
 import { PnlLineChart } from "@/components/charts/PnlLineChart";
 
-export const dynamic = "force-dynamic";
 
 async function getOverviewData() {
   const openTrades = await db.select().from(paperTrades).where(eq(paperTrades.status, "open"));
